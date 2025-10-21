@@ -1,15 +1,31 @@
-## Foundry
+## SKALE Chain Setup
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This GitHub repository contains all of the base scripts and contracts needed to setup a SKALE Chain efficiently.
 
-Foundry consists of:
+## Setup
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1. SSH: `git clone git@github.com/thegreataxios/skale-chain-setup` or HTTPS: `git clone https://github.com/TheGreatAxios/skale-chain-setup`
 
-## Documentation
+2. `forge install`, requires [Foundry](https://getfoundry.sh)
+
+3. Setup env file. Run `cp .env.example .env` and input your chain rpc. If you are using a foundry account, ignore the private key.
+
+> Ensure the PRIVATE_KEY or account being used to execute has at least 5 sFUEL or native gas token equivalent
+
+4. Simulate core contract deployment:
+
+```shell
+
+# Simulate with Private Key
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --private-key
+
+# Simulate with Account
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --account <YourAccountName>
+```
+
+## Deployment Scripts
+
+## Foundry Documentation
 
 https://book.getfoundry.sh/
 
