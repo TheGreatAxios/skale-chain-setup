@@ -11,12 +11,11 @@ import {AbstractFiatTokenV1} from "@circle/contracts/v1/AbstractFiatTokenV1.sol"
 
 contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
     using SafeMath for uint256;
-    
-    constructor(
-        string memory name,
-        string memory symbol,
-        uint8 decimals
-    ) public SkaleBridgedERC20(name, symbol, decimals) {
+
+    constructor(string memory name, string memory symbol, uint8 decimals)
+        public
+        SkaleBridgedERC20(name, symbol, decimals)
+    {
         _DEPRECATED_CACHED_DOMAIN_SEPARATOR = EIP712.makeDomainSeparator(name, "1");
     }
 
@@ -26,12 +25,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param increment Amount of increase in allowance
      * @return True if successful
      */
-    function increaseAllowance(address spender, uint256 increment)
-        public
-        virtual
-        override
-        returns (bool)
-    {
+    function increaseAllowance(address spender, uint256 increment) public virtual override returns (bool) {
         _increaseAllowance(msg.sender, spender, increment);
         return true;
     }
@@ -42,12 +36,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param decrement Amount of decrease in allowance
      * @return True if successful
      */
-    function decreaseAllowance(address spender, uint256 decrement)
-        public
-        virtual
-        override
-        returns (bool)
-    {
+    function decreaseAllowance(address spender, uint256 decrement) public virtual override returns (bool) {
         _decreaseAllowance(msg.sender, spender, decrement);
         return true;
     }
@@ -75,17 +64,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
         bytes32 r,
         bytes32 s
     ) external {
-        _transferWithAuthorization(
-            from,
-            to,
-            value,
-            validAfter,
-            validBefore,
-            nonce,
-            v,
-            r,
-            s
-        );
+        _transferWithAuthorization(from, to, value, validAfter, validBefore, nonce, v, r, s);
     }
 
     /**
@@ -113,17 +92,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
         bytes32 r,
         bytes32 s
     ) external {
-        _receiveWithAuthorization(
-            from,
-            to,
-            value,
-            validAfter,
-            validBefore,
-            nonce,
-            v,
-            r,
-            s
-        );
+        _receiveWithAuthorization(from, to, value, validAfter, validBefore, nonce, v, r, s);
     }
 
     /**
@@ -135,13 +104,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param r             r of the signature
      * @param s             s of the signature
      */
-    function cancelAuthorization(
-        address authorizer,
-        bytes32 nonce,
-        uint8 v,
-        bytes32 r,
-        bytes32 s
-    ) external {
+    function cancelAuthorization(address authorizer, bytes32 nonce, uint8 v, bytes32 r, bytes32 s) external {
         _cancelAuthorization(authorizer, nonce, v, r, s);
     }
 
@@ -155,15 +118,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param r           r of the signature
      * @param s           s of the signature
      */
-    function permit(
-        address owner,
-        address spender,
-        uint256 value,
-        uint256 deadline,
-        uint8 v,
-        bytes32 r,
-        bytes32 s
-    )
+    function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s)
         external
         virtual
     {
@@ -176,11 +131,7 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param spender   Spender's address
      * @param increment Amount of increase
      */
-    function _increaseAllowance(
-        address owner,
-        address spender,
-        uint256 increment
-    ) internal override {
+    function _increaseAllowance(address owner, address spender, uint256 increment) internal override {
         uint256 current = allowance(owner, spender);
         _approve(owner, spender, current.add(increment));
     }
@@ -191,17 +142,9 @@ contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
      * @param spender   Spender's address
      * @param decrement Amount of decrease
      */
-    function _decreaseAllowance(
-        address owner,
-        address spender,
-        uint256 decrement
-    ) internal override {
+    function _decreaseAllowance(address owner, address spender, uint256 decrement) internal override {
         uint256 current = allowance(owner, spender);
-        _approve(
-            owner,
-            spender,
-            current.sub(decrement, "ERC20: decreased allowance below zero")
-        );
+        _approve(owner, spender, current.sub(decrement, "ERC20: decreased allowance below zero"));
     }
 
     // Resolve multiple inheritance for _approve and _transfer

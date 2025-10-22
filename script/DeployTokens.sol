@@ -14,8 +14,6 @@ import {SkaleToken} from "../src/tokens/SkaleToken.sol";
 
 contract DeployTokens is Script {
     function run() external {
-
-
         bytes32 saltUSDC = keccak256(abi.encodePacked("SKALE_USDC"));
         bytes32 saltUSDT = keccak256(abi.encodePacked("SKALE_USDT"));
         bytes32 saltwstETH = keccak256(abi.encodePacked("SKALE_wstETH"));

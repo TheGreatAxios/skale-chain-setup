@@ -11,7 +11,6 @@ import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
  * It utilizes OpenZeppelin's ERC20 and AccessControl for functionality.
  */
 contract SkaleBridgedERC20 is ERC20, AccessControl {
-    
     // Define roles using hashed constants for efficient comparison.
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
@@ -24,9 +23,8 @@ contract SkaleBridgedERC20 is ERC20, AccessControl {
      * @param symbol The symbol of the token.
      */
     constructor(string memory name, string memory symbol, uint8 decimals__) public ERC20(name, symbol) {
-
         DECIMALS = decimals__;
-        
+
         // Assign the default admin role to a predefined address.
         _setupRole(DEFAULT_ADMIN_ROLE, 0xD244519000000000000000000000000000000000);
 
