@@ -23,6 +23,41 @@ forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC
 forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --account <YourAccountName>
 ```
 
+5. Broadcast core contract deployment:
+
+```shell
+
+# Simulate with Private Key
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --private-key --broadcast --legacy
+
+# Simulate with Account
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL  --broadcast --legacy --account <YourAccountName>
+```
+
+6. Deploy all Tokens
+
+> To deploy just a subset, comment out ones you do not want at this time
+
+```shell
+
+# Simulate with Private Key
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --private-key
+
+# Simulate with Account
+forge script ./script/DeployCoreContracts.sol:DeployCoreContracts --rpc-url $RPC_URL --account <YourAccountName>
+```
+
+7. Execute (broadcast) all tokens
+
+```shell
+
+# Excute with Private Key
+forge script ./script/DeployTokens.sol:DeployTokens --rpc-url $RPC_URL --private-key --broadcast --legacy
+
+# Execute with Account
+forge script ./script/DeployTokens.sol:DeployTokens --rpc-url $RPC_URL  --broadcast --legacy --account <YourAccountName>
+```
+
 ## Deployment Scripts
 
 ## Foundry Documentation
