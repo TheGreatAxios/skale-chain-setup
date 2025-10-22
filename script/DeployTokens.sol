@@ -4,6 +4,7 @@ pragma solidity 0.6.12;
 import {Script} from "forge-std/Script.sol";
 
 import {USDC} from "../src/tokens/USDC.sol";
+import {USDT} from "../src/tokens/USDT.sol";
 import {wstETH} from "../src/tokens/wstETH.sol";
 import {WBTC} from "../src/tokens/WBTC.sol";
 import {USDe} from "../src/tokens/USDe.sol";
@@ -16,6 +17,7 @@ contract DeployTokens is Script {
 
 
         bytes32 saltUSDC = keccak256(abi.encodePacked("SKALE_USDC"));
+        bytes32 saltUSDT = keccak256(abi.encodePacked("SKALE_USDT"));
         bytes32 saltwstETH = keccak256(abi.encodePacked("SKALE_wstETH"));
         bytes32 saltWBTC = keccak256(abi.encodePacked("SKALE_WBTC"));
         bytes32 saltUSDe = keccak256(abi.encodePacked("SKALE_USDe"));
@@ -28,6 +30,7 @@ contract DeployTokens is Script {
         new USDC{salt: saltUSDC}();
         new wstETH{salt: saltwstETH}();
         new WBTC{salt: saltWBTC}();
+        new USDT{salt: saltUSDT}();
         new USDe{salt: saltUSDe}();
         new USDS{salt: saltUSDS}();
         new WETH{salt: saltWETH}();
