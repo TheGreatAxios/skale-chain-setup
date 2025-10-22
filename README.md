@@ -80,3 +80,12 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+## Licenses
+
+This project is MIT Licensed. See LICENSE [here](./LICENSE).
+This project uses Apache 2.0 contracts from Circle. You can see their license [here](./lib/stablecoin-evm/LICENSE).
+
+## Security
+
+The code and deployments from this codebase are WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
