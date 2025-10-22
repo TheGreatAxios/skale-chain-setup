@@ -11,6 +11,10 @@ contract DeployCoreContracts is Script {
          **
          */
 
+        if (msg.sender.balance < 3 ether) {
+            revert("Insufficient Balance");
+        }
+
         // Provide gas to the Create2Factory contract deployer
         payable(0x3fAB184622Dc19b6109349B94811493BF2a45362).transfer(1 ether);
 
