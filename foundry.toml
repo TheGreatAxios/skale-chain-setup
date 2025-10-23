@@ -10,6 +10,5 @@ optimizer_runs = 200_000_000
 
 remappings = [
     "forge-std/=lib/forge-std/src/",
-    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
-    "@circle/contracts/=lib/stablecoin-evm/contracts/"
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"
 ]
