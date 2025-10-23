@@ -9,7 +9,7 @@ import {SafeMath} from "@openzeppelin/contracts/math/SafeMath.sol";
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {AbstractFiatTokenV1} from "@circle/contracts/v1/AbstractFiatTokenV1.sol";
 
-contract x402Token is EIP3009, EIP2612, SkaleBridgedERC20 {
+contract x402BridgedToken is EIP3009, EIP2612, SkaleBridgedERC20 {
     using SafeMath for uint256;
 
     constructor(string memory name, string memory symbol, uint8 decimals)

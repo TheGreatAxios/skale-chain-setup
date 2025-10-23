@@ -3,14 +3,14 @@ pragma solidity 0.6.12;
 
 import {Script} from "forge-std/Script.sol";
 
-import {USDC} from "../src/tokens/USDC.sol";
-import {USDT} from "../src/tokens/USDT.sol";
-import {wstETH} from "../src/tokens/wstETH.sol";
-import {WBTC} from "../src/tokens/WBTC.sol";
-import {USDe} from "../src/tokens/USDe.sol";
-import {USDS} from "../src/tokens/USDS.sol";
-import {WETH} from "../src/tokens/WETH.sol";
-import {SkaleToken} from "../src/tokens/SkaleToken.sol";
+import {USDC} from "../src/bridged/USDC.sol";
+import {USDT} from "../src/bridged/USDT.sol";
+import {wstETH} from "../src/bridged/wstETH.sol";
+import {WBTC} from "../src/bridged/WBTC.sol";
+import {USDe} from "../src/bridged/USDe.sol";
+import {USDS} from "../src/bridged/USDS.sol";
+import {WETH} from "../src/bridged/WETH.sol";
+import {SkaleToken} from "../src/bridged/SkaleToken.sol";
 
 contract DeployTokens is Script {
     function run() external {
