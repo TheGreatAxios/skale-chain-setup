@@ -14,25 +14,25 @@ import {SkaleToken} from "../src/bridged/SkaleToken.sol";
 
 contract DeployTokens is Script {
     function run() external {
-        bytes32 saltUSDC = keccak256(abi.encodePacked("SKALE_USDC"));
-        bytes32 saltUSDT = keccak256(abi.encodePacked("SKALE_USDT"));
-        bytes32 saltwstETH = keccak256(abi.encodePacked("SKALE_wstETH"));
-        bytes32 saltWBTC = keccak256(abi.encodePacked("SKALE_WBTC"));
-        bytes32 saltUSDe = keccak256(abi.encodePacked("SKALE_USDe"));
-        bytes32 saltUSDS = keccak256(abi.encodePacked("SKALE_USDS"));
-        bytes32 saltWETH = keccak256(abi.encodePacked("SKALE_WETH"));
-        bytes32 saltSKL = keccak256(abi.encodePacked("SKALE_SKL"));
+        bytes32 saltUsdc = keccak256(abi.encodePacked("SKALE_USDC"));
+        bytes32 saltUsdt = keccak256(abi.encodePacked("SKALE_USDT"));
+        bytes32 saltWsteth = keccak256(abi.encodePacked("SKALE_wstETH"));
+        bytes32 saltWbtc = keccak256(abi.encodePacked("SKALE_WBTC"));
+        bytes32 saltUsde = keccak256(abi.encodePacked("SKALE_USDe"));
+        bytes32 saltUsds = keccak256(abi.encodePacked("SKALE_USDS"));
+        bytes32 saltWeth = keccak256(abi.encodePacked("SKALE_WETH"));
+        bytes32 saltSkl = keccak256(abi.encodePacked("SKALE_SKL"));
 
         vm.startBroadcast();
 
-        new USDC{salt: saltUSDC}();
-        new wstETH{salt: saltwstETH}();
-        new WBTC{salt: saltWBTC}();
-        new USDT{salt: saltUSDT}();
-        new USDe{salt: saltUSDe}();
-        new USDS{salt: saltUSDS}();
-        new WETH{salt: saltWETH}();
-        new SkaleToken{salt: saltSKL}();
+        new USDC{salt: saltUsdc}();
+        new wstETH{salt: saltWsteth}();
+        new WBTC{salt: saltWbtc}();
+        new USDT{salt: saltUsdt}();
+        new USDe{salt: saltUsde}();
+        new USDS{salt: saltUsds}();
+        new WETH{salt: saltWeth}();
+        new SkaleToken{salt: saltSkl}();
 
         vm.stopBroadcast();
     }

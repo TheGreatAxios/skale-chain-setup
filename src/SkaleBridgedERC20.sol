@@ -2,7 +2,7 @@
 pragma solidity 0.6.12;
 
 // Importing the ERC20 standard contract and AccessControl for role-based access management.
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {x402Token} from "./lib/Token.sol";
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 
 /**
@@ -10,21 +10,17 @@ import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
  * @dev This contract is an ERC20 token implementation with role-based access control for minting and burning.
  * It utilizes OpenZeppelin's ERC20 and AccessControl for functionality.
  */
-contract SkaleBridgedERC20 is ERC20, AccessControl {
+contract SkaleBridgedERC20 is x402Token, AccessControl {
     // Define roles using hashed constants for efficient comparison.
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant BURNER_ROLE = keccak256("BURNER_ROLE");
-
-    uint8 private immutable DECIMALS;
 
     /**
      * @notice Constructor initializes the ERC20 token and sets up roles.
      * @param name The name of the token.
      * @param symbol The symbol of the token.
      */
-    constructor(string memory name, string memory symbol, uint8 decimals__) public ERC20(name, symbol) {
-        DECIMALS = decimals__;
-
+    constructor(string memory name, string memory symbol, uint8 decimals) public x402Token(name, symbol, decimals) {
         // Assign the default admin role to a predefined address.
         _setupRole(DEFAULT_ADMIN_ROLE, 0xD244519000000000000000000000000000000000);
 
@@ -33,10 +29,6 @@ contract SkaleBridgedERC20 is ERC20, AccessControl {
 
         // Assign the burner role to a predefined address.
         _setupRole(BURNER_ROLE, 0xD2aAA00500000000000000000000000000000000);
-    }
-
-    function decimals() public view virtual override returns (uint8) {
-        return DECIMALS;
     }
 
     /**
