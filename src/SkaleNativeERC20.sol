@@ -18,10 +18,7 @@ contract SkaleNativeERC20 is x402Token, AccessControl {
      * @param name The name of the token.
      * @param symbol The symbol of the token.
      */
-    constructor(string memory name, string memory symbol, uint8 decimals) public x402Token(name, symbol, decimals) {
-        // Assign the minter role to the caller.
-        _setupRole(MINTER_ROLE, msg.sender);
-    }
+    constructor(string memory name, string memory symbol, uint8 decimals) public x402Token(name, symbol, decimals) {}
 
     /**
      * @notice Mints new tokens and assigns them to the specified address.

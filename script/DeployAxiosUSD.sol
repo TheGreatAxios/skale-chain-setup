@@ -7,11 +7,12 @@ import {console} from "forge-std/console.sol";
 
 contract DeployAxiosUSD is Script {
     function run() external {
-        bytes32 salt = keccak256(abi.encodePacked("SKALE_AxiosUSD"));
-
         vm.startBroadcast();
 
-        AxiosUSD axiosUSD = new AxiosUSD{salt: salt}();
+        bytes32 salt = keccak256(abi.encodePacked("axiosUSD"));
+        address deployer = msg.sender;
+
+        AxiosUSD axiosUSD = new AxiosUSD{salt: salt}(deployer);
         address axiosUSDAddress = address(axiosUSD);
 
         console.log("AxiosUSD deployed to:", axiosUSDAddress);
