@@ -8,7 +8,7 @@ contract DeployCoreContracts is Script {
         /**
          * This is a pre-signed raw transaction for the Create2Factory contract
          *     DO NOT REMOVE THESE PAYABLE TRANSFERS
-         **
+         *
          */
         vm.startBroadcast();
 
@@ -25,7 +25,9 @@ contract DeployCoreContracts is Script {
         // Provide gas to the SingletonFactory contract
         payable(0xBb6e024b9cFFACB947A71991E386681B1Cd1477D).transfer(0.1 ether);
 
-        /****** Deploy Create2Factory ******/
+        /**
+         * Deploy Create2Factory *****
+         */
         bytes memory rawTxCreate2FactoryTx =
             hex"f8a58085174876e800830186a08080b853604580600e600039806000f350fe7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe03601600081602082378035828234f58015156039578182fd5b8082525050506014600cf31ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222";
 

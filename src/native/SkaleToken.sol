@@ -16,4 +16,3 @@ contract SkaleToken is ERC20 {
         _burn(from, amount);
     }
 }
-

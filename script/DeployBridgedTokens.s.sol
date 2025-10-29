@@ -8,7 +8,6 @@ import {WBTC} from "../src/bridged/WBTC.sol";
 import {WETH} from "../src/bridged/WETH.sol";
 import {SkaleToken} from "../src/bridged/SkaleToken.sol";
 
-
 contract DeployBridgedTokens is Script {
     function run() external {
         bytes32 saltUsdt = keccak256(abi.encodePacked("SKALE_USDT"));

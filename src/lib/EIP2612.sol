@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 pragma solidity 0.6.12;
 
 import {IERC20Internal} from "./IERC20Internal.sol";

@@ -20,4 +20,3 @@ contract WBTC is ERC20 {
         _burn(from, amount);
     }
 }
-
